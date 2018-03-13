@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div">
+        <div1 id="div1"><p id="p1">this is p1</p><p id="p2">this is p2</p></div1>
+        <div id="div2">
+            <p id="p3">this is p3</p>
+            <p id="p4">this is p4</p>
+        </div>
+    </div>
+    <script>
+        // var div1 = document.getElementById('div1');
+        // var div2 = document.getElementsByClassName('div1');
+        // var div3 = document.getElementsByTagName('div');
+        // var pList = document.querySelectorAll('p');
+        // // 属性的操作
+        // console.log(div1.className);
+        // // attribute
+        // div1.setAttribute('style','border: 1px solid #000');
+        // console.log(div1.getAttribute('style'));
+        // // DOM其实是一个树,对于树的操作
+        // // 新增节点、获取父元素、获取子元素、删除节点
+        // NodeType代表html类型
+
+        // // 添加新节点
+        // var p = document.createElement('p');
+        // p1.innerHTML = 'this is p1';
+        // div1.appendChild(p1);
+        // // 移动新节点
+        // var p1 = document.getElementById('p2');
+        // div1.appendChild(p2);
+        // // 获取父元素
+        // var parent = div1.parentElement;
+        // var child = div1.childNodes;
+        // div.removeChild(child[0]);
+        var p = document.createElement('p');
+        p.innerHTML = 'this is new p';
+        var div1 = document.getElementById('div1');
+        div1.appendChild(p);
+
+        var p4 = document.getElementById('p4');
+        var div1 = document.getElementById('div1');
+        div1.removeChild(div1.childNodes[0]);
+    </script>
+</body>
+</html>

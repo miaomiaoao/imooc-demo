@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.手动编写一个ajax,不依赖第三方库 2.跨域的几种实现方式
+        /*
+        知识点：
+        XMLHttpRequest
+        状态码
+        跨域
+        */
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'API', false);
+        xhr.onreadystatechange = function() {
+            // 这里面的函数是异步执行
+            if(xhr.readyState === 4) {
+                if(xhr.status === 200) {
+
+                }
+            } 
+        }
+        xhr.send(null);
+    </script>
+</body>
+</html>

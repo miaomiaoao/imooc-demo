@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 2018-03-13 created by xuying
+        
+        /*
+         问题：将[a, b, c] [1, 2, 3]合并为
+         [{"name": "a","sum": 1}, {"name": "b", "sum": 2}, {"name": "c", "sum": 3}]
+        */
+
+        /*
+        知识点：数组循环是forEach方法,对象的循环用for...in...
+        错误点：如果在forEach外定义obj,会造成数组中所有的json对象赋值为同一个。
+        因为数组和对象是引用类型的值
+        */
+        var arr = [];
+        var arr1 = ['a', 'b', 'c']
+        var arr2 = [1, 2, 3]
+        arr1.forEach(function(index1, item1) {
+            var obj = {};
+            obj["name"] = index1;
+            arr.push(obj);
+        });
+        arr2.forEach(function(val, index) {
+            arr[index]["sum"] = val;
+        });
+    </script>
+</body>
+</html>

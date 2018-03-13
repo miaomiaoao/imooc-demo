@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 如何消除一个数组里面重复的元素？
+        var arr1 = [1,2,2,3,3,1,9,4];
+        var arr2 = [];
+        for(var i = 0; i < arr1.length; i++) {
+            if(arr2.indexOf(arr1[i]) < 0) {
+                arr2.push(arr1[i]);
+            }
+        }
+        document.write(arr2);
+    </script>
+    <script>
+        // 统计字符串"aaaabbbbbbccgfd"中字母个数或统计最多字母数
+        var str = "aaaabbbbbbccgfd";
+        var a = false; 
+        var b = new Boolean();
+        console.log(a.valueOf() === a);
+        console.log(b.valueOf() === b);
+    </script>
+
+    <script>
+        var a = 1;
+        function a() {};
+        console.log(a); // 1
+        var a = 1;
+        var a = function() {};
+        console.log(a); // f() {}
+
+        var a = false;
+        var b = new Boolean(); // Boolean{false} b是一个对象
+        a.valueOf() === a; // true
+        b.valueOf() === b; // b.valueOf 是一个值false,所以最后结果为false
+
+        var father = {
+            primitive: 1,
+            object: {
+                fruit: 'APPLE'
+            }
+        }
+        var son1 = Object.create(father);
+        var son2 = Object.create(father);
+        son1.primitive = 2;
+        son2.object.fruit = 'GRAPE';
+        console.log(son1.object.fruit); // 1
+        console.log(son2.primitive); // 'GRAPE'
+        // Object.create()继承父类的原型
+        // 当子类修改父类的值类型属性时,父类不会被影响,更不会传递到其他子类上
+        // 当子类修改引用类型属性时,父类会被影响,并会传递到其他子类上
+
+    </script>
+</body>
+</html>

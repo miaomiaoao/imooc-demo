@@ -1,0 +1,45 @@
+<!DOCTYPE>  
+<html>  
+   
+<head>  
+    <title>呼吸效果测试</title>  
+    <meta content="width=device-width;initial-scale=1">     
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+</head>  
+   
+  <body>  
+          
+        <!-- <script type="text/javascript">
+        // 创建<a>标签，点击的时候弹出对应的序号
+        var i, a;
+        for(i = 0; i < 10; i++) {
+            a = document.createElement('a');
+            a.innerHTML = i + '<br/>'
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert(i); // 此时i是自由变量,要去父作用域中查找
+            });
+            document.body.appendChild(a);
+        }
+       </script> -->
+       <!-- // 立即执行函数,就是不用调用,只要定义完,就能执行 -->
+       <script>
+           var i,a;
+           for(i = 0; i < 10; i++) {
+               (function(i) {
+                   // i在里面里面有一个函数作用域
+                  a = document.createElement('a');
+                  a.innerHTML = i;
+                  a.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      alert(i);// i是自由变量
+                      // 需要去父级作用域中查找
+                      // 而在创建此函数时,i是多少,打印出来就是多少
+                  }); 
+               })(i);
+               document.body.appendChild(a);
+           }
+       </script>
+    </body>  
+  
+</html>  

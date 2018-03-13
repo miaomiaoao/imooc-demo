@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 变量命名的时候如果带_,则代表为私有变量
+    function isFirstLoad() {
+        var _list = [];
+        return function(id) {
+            if(_list.indexOf(id) >= 0) {
+                return false;
+            } else {
+                _list.push(id);
+                return true;
+            }
+        }
+    }
+    var firstLoad = isFirstLoad();
+    firstLoad(10);  // true
+    firstLoad(10);  // false
+    firstLoad(20);  // true
+    firstLoad(20);  // false
+    // 你在isFirstLoad函数外面,根本不可能修改_list的值
+    const o = {
+        method() {
+            return 'hello'
+        }
+    }
+    let birth = '2000/01/01'
+    const Person = {
+        name: 'xuying',
+        birth,
+        hello() {
+            return 'birth'
+        }
+    }
+    </script>
+</body>
+</html>>

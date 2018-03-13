@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 事件代理代码封装
+        function bindEvent(elem, type, selector, fn) {
+            if (fn === null) {
+                fn = selector;
+                selector = null;
+            }
+
+            elem.addEventListener(type, selector, function(e) {
+                var target;
+                if (selector) {
+                    target = e.target;
+                    if(target.matches(selector)) {
+                        fn.call(target, e);
+                    }
+                } else {
+                    fn(e);
+                }
+            });
+        }
+
+        var div1 = document.getElementById('div1');
+        bindEvent(div1, 'click', function() {
+
+        });
+
+        bindEvent(div1, 'click', a, function() {
+
+        });
+
+        /*
+        1. 编写一个通用的事件监听函数(上述代码) call函数是什么意思
+        2. 简述事件冒泡流程
+            1) DOM树形结构
+            2) 事件冒泡
+            3) 阻止冒泡
+            4) 冒泡的应用
+        3.无限下拉加载图片的页面,绑定时间
+            1) 使用代理
+            2) 事件代理的好处：减少内存和渲染的压力
+        */
+    </script>
+</body>
+</html>

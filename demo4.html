@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 获取2017-06-10格式的日期
+        function formatDate(dt) {
+            if(!dt) {
+                dt = new Date();
+            }
+            var year = dt.getFullYear();
+            var month = dt.getMonth() + 1;
+            var day = dt.getDate();
+            if(month < 10) {
+                month = '0' + month;
+            }
+            if(day < 10) {
+                day = '0' + day;
+            }
+            return year + '-' + month + '-' + day;
+        }
+        var dt = new Date();
+        console.log(formatDate(dt));
+        
+        // 获取随机数,要求是长度一直的字符串格式。
+        var random = Math.random();
+        var random = random + '0000000000';
+        var random = random.slice(0, 10);
+        console.log(random);
+
+        // 写一个能遍历对象和数组的foreach函数
+        function forEach(obj, fn) {
+
+            var key;
+            if(obj instanceof Array) {
+                // 数组,遍历数组的方法
+                obj.forEach(function(item, index) {
+                    fn(index, item);
+                });
+            } else {
+                for(key in obj) {
+                    fn(key, obj[key]);
+                }
+            }
+
+        }
+
+        // 数组的遍历用foreach方法,对象的遍历for..in..
+        
+    </script>
+</body>
+</html>
