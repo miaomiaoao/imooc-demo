@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 重置元素的属性 */
+    </style>
+</head>
+
+<body>
+    <!-- BFC：块级格式化上下文 -->
+    <!-- 垂直方向上元素边距重叠 -->
+    <section id="sec">
+        <style>
+            #sec {
+                background: yellow;
+            }
+
+            #sec>p {
+                background: pink;
+                margin: 5px auto 25px;
+            }
+        </style>
+        <p class="p1">p1</p>
+        <div style="overflow: auto">
+            <p class="p2">p2</p>
+        </div>
+        <p class="p3">p3</p>
+    </section>
+
+    <!-- BFC元素与浮动元素不相互重叠 -->
+    <section id="float">
+        <style>
+            #float .left {
+                float: left;
+                height: 200px;
+                width: 300px;
+                background: red;
+
+            }
+
+            #float .right {
+                background: black;
+                height: 300px;
+                overflow: auto;
+            }
+        </style>
+        <div class="left">xxxx</div>
+        <div class="right"></div>
+    </section>
+
+    <!-- 计算BFC元素的高度时, 浮动元素也参与计算 -->
+    <section id="layout">
+        <style>
+            #layout {
+                background: red;
+                overflow: auto;
+            }
+            #xxx {
+                font-size: 30px;
+                float: left;
+            }
+        </style>
+        <div id="xxx">
+            xxxx
+        </div>
+    </section>
+</body>
+
+</html>

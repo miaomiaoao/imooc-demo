@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- <section>
+        <style>
+            section > div {
+                border: 1px solid black;
+            }
+
+            section {
+                display: flex;
+                flex-direction: row;
+                width: 200px;
+            }
+
+            .item1 {
+                flex-shrink: 3;
+            }
+            .item2 {
+                flex: 1;
+            }
+        </style>
+        <div class="item1">item1</div>
+        <div class="item2">item2</div>
+        <div class="item3">item3</div>
+    </section> -->
+    <!-- flex圣杯布局 -->
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            height: 100%;
+        }
+        .container header {
+            flex: 0 0 100px;
+            background: yellow;
+        }
+        .container footer {
+            flex: 0 0 100px;
+            background: red;
+        }
+        .container article {
+            flex: 1;
+            display: flex;
+        }
+        article nav {
+            flex: 0 0 100px;
+            background: #232323;
+        }
+
+        article aside {
+            flex: 0 0 100px;
+            background: #b1b1b1;
+        }
+
+        article .body {
+            flex: 1;
+            background: cadetblue;
+        }
+
+
+        nav
+    </style>
+    <section class="container">
+        <header></header>
+        <article class="main">
+            <nav></nav>
+            <div class="body"></div>
+            <aside></aside>
+        </article>
+        <footer></footer>
+    </section>
+</body>
+</html>
