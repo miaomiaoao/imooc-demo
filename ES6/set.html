@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script>
+        let set = new Set();
+        set.add(1).add(2).add(2);
+        set.delete(1);
+        console.log(set.size);
+        console.log(set.has(3));
+
+        //数组去重
+        function dedupe(array) {
+            console.log(Array.from(new Set(array)));
+        }
+
+        console.log(dedupe([1, 2, 2, 3, 3]));
+
+        // 遍历set集合
+        let set1 = new Set(['red', 'green', 'orange']);
+        for(let item of set1.entries()) {
+            console.log(item); // 返回对键值的遍历器
+        }
+        set1.forEach((value, key) => console.log(key + ':' + value))
+        let arr = [3, 4, 2, 2, 5, 5];
+        let unique = [...new Set(arr)];
+        console.log(unique);
+
+        let set3 = new Set([1, 3, 4]);
+        let arr1 = [...set3];
+        console.log(arr1);
+    </script>
+</body>
+</html>
