@@ -21,7 +21,14 @@
         <p id="p5">取消</p>
         <p id="p6">取消</p>
     </div>
+<input type="text" id="Button">
     <script>
+        var button = document.getElementById('Button');
+        document.onkeydown = function(e) {
+            if(e.keyCode === 13) {
+                alert('1231');
+            }
+        }
         // function bindEvent(elem, type, fn) {
         //     elem.addEventListener(type, fn);
         // }
@@ -47,7 +54,42 @@
         //     alert('body');
         // });
 
-       
+        function foo() {
+            var id = 3;
+            return function() {
+                alert(this.id);
+                // setTimeout(function() {
+                //     console.log(this.id);
+                // }, 100);
+            }
+        }
+
+        var id = 1;
+        foo.call({id: 2});
+
+
+        // function foo() {
+        //     return function() {
+        //         return function() {
+        //             return function() {
+        //                 console.log(this.id);
+        //             }
+        //         }
+        //     }
+        // }
+
+        // var f = foo.call({id: 1});
+        // f()()();
+        // f.call({id: 2})()();
+        // f().call({id: 3})();
+        // f()().call({id: 4});
+
+
+        /*
+        用js实现parse函数和stringly函数,其中parse函数可以将查询字符串解析为对象,stringly函数可以把
+        对象序列化为查询字符串(如：parse('a=1&b=2')的结果是{a: '1', b: '2'}, stringly({a: '1', b: '2'}))
+        的结果为'a=1&b=2'
+        */
     </script>
 </body>
 </html>

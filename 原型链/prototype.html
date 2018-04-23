@@ -9,9 +9,12 @@
 </head>
 
 <body>
+    <div id="div1">
+        lllllllll
+    </div>
     <!-- 创建对象的几种方法 -->
 
-    <script>
+    <!-- <script>
         /* 对象字面量 */
         var o1 = {
             name: 'o1'
@@ -32,6 +35,60 @@
             name: 'o4'
         };
         var o4 = Object.create(p);
+    </script> -->
+
+    <script>
+        function Animal() {
+            this.eat = new function() {
+                console.log('animal eat');
+            }
+        }
+
+        function Dog() {
+            this.bark = new function() {
+                console.log('dog bark');
+            }
+        }
+
+        Dog.prototype = new Animal();
+        var dog = new Dog();
+    </script>
+    <!-- <script>
+        function Elem(id) {
+            this.elem = document.getElementById(id);
+        }
+
+        Elem.prototype.html = function(val) {
+            var elem = this.elem
+            if(val) {
+                elem.innerHTML = val
+            } else {
+                return elem.innerHTML
+            }
+        }
+
+        Elem.prototype.on = function(type, fn) {
+            var elem = this.elem
+            elem.addEventListener(type, fn)
+        }
+
+        var elem1 = new Elem('div1')
+        elem1.html('<p>hello world</p>')
+        elem1.on('click', function() {
+            alert('clicked');
+        });
+    </script> -->
+    <script>
+        function Parent() {
+            this.name = 'parent4'
+        }
+        function Child() {
+            Parent.call(this)
+            this.type = 'child'
+        }
+        Child.prototype = Parent.prototype
+        var o1 = new Child()                    
+        var o2 = new Child()
     </script>
 </body>
 
