@@ -8,43 +8,77 @@
 </head>
 <body>
     <script>
-        //1.借助构造函数的方法实现继承
-        // child无法实现Parent原型对象,并没有真正的实现继承(部分继承)
-        function Parent(name) {
-            this.name = name;
+      // 1.借助构造函数实现继承
+      function Parent1() {
+          this.name = 'parent'
+      }
+
+      function Child1() {
+          Parent1.call(this);
+          this.type = 'child1'
+      }
+
+      var o1 = new Child1();
+      // 缺点 如果Parent1的prototype(原型)上有一些属性和方法,无法继承
+
+      // 2.借助原型链实现继承
+     function Parent2() {
+            this.name = 'parent'
+            this.play = [1, 2, 3]
         }
 
-        function Child(type) {
-            Child.call(this);
-            this.type = type;
+        function Child2() {
+            this.type = 'child1'
         }
 
-        // 借助原型链实现继承
-        // 缺点:对象的属性是共享的。
-        function Parent1() {
-            this.name = 'parent1';
-            this.play = ['1', '2', '3'];
-        }
+        Child2.prototype = new Parent2();
+        var o2 = new Child2();
+        var o3 = new Child2();
+        o2.play.push(4);
+        
+        // 因为o2和o3引用的都是一个原型链的地址,所以当一个实例改变时,另外一个实例也会受影响
 
-        function Child1() {
-            this.type = 'child1';
-        }
-
-        Child1.prototype = new Parent();
-
-        // 组合式继承
+        // 3.组合继承
         function Parent3() {
-            this.name = 'parent3';
-            this.play = ['1', '2', '3'];
+            this.name = 'parent'
         }
 
         function Child3() {
-            Parent3.call(this);
-            this.type = 'child3';
+            Parent1.call(this);
+            this.type = 'child'
         }
 
-        Child3.prototype = Object.create(Parent3.prototype);
-        Child3.prototype.constructor = Child3;
+        Child3.prototype = new Parent3()
+        // 取两种方式的有点和不足,缺点是parent3的构造方式执行了两次
+
+        // 4.组合继承优化2
+        function Parent4() {
+            this.name = 'parent'
+        }
+
+        function Child4() {
+            Parent4.call(this)
+            this.type = 'chid'
+        }
+
+        Child4.prototype = Parent4.prototype
+
+        //  缺点 构造函数指向的是一个
+
+        // 5.组合继承优化3 使构造函数不指向同一个函数
+
+        function Parent5() {
+            this.name = 'parent'
+        }
+
+        function  Child5() {
+            Parent5.call(this);
+            this.type = 'child5'
+        } 
+
+        Child5.prototype = Object.create(Parent5.prototype)
+        Child5.prototype.constructor = Child5
+
     </script>
 </body>
 </html>

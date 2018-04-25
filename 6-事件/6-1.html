@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <button id="btn1"></button>
+    <div id="div1">
+        <p id="p1">激活</p>
+        <p id="p2">取消</p>
+        <p id="p3">取消</p>
+        <p id="p4">取消</p>
+    </div>
+    <div id="div3">
+        <p id="p5">取消</p>
+        <p id="p6">取消</p>
+    </div>
+    <script>
+        var btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', function() {
+            console.log('clicked');
+        });
+
+        function bindEvent(elem, type, fn) {
+            elem.addEventListener(type, fn);
+        }
+
+        // var a = document.getElementById('link1');
+        // bindEvent(a, 'click', function(e) {
+        //     e.preventDefault();
+        //     alert('clicked');
+        // });
+
+        var p1 = document.getElementById('p1')
+        var body = document.body
+
+        bindEvent(p1, 'click', function(e) {
+            e.stopPropagation();
+            alert('激活')
+        })
+
+        bindEvent(body, 'click', function() {
+            alert('取消')
+        })
+    </script>
+</body>
+</html>
